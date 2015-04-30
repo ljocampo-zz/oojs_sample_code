@@ -10,15 +10,15 @@
  **/
 
 
-var URLStorer = function(){
+var URLStorer = function () {
     Object.defineProperty(this, "sites", {
         value: {}
     });
 };
 
-Object.defineProperties(URLStorer.prototype,{
-    urlData:{
-        value: function (url){
+Object.defineProperties(URLStorer.prototype, {
+    urlData: {
+        value: function (url) {
             var protocolAndPath = url.split('://');
             return {
                 protocol: protocolAndPath[0],
@@ -27,8 +27,8 @@ Object.defineProperties(URLStorer.prototype,{
             }
         }
     },
-    push:{
-        value: function(url){
+    push: {
+        value: function (url) {
             var data = this.urlData(url);
             if (!this.sites[data.domain]) {
                 this.sites[data.domain] = {};
@@ -39,8 +39,8 @@ Object.defineProperties(URLStorer.prototype,{
         },
         enumerable: true
     },
-    hasVisited:{
-        value: function(url){
+    hasVisited: {
+        value: function (url) {
             var data = this.urlData(url);
             var outcome = false;
             // Check if there is not path, only domain for visited domain
